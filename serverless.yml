@@ -16,7 +16,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: prod
   region: us-east-1
   # To load environment variables externally
   # rename env.example to env.yml and uncomment
@@ -26,9 +26,15 @@ provider:
   #environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
-  hello:
-    handler: handler.hello
+  tournamentsList:
+    handler: handler.tournamentsList
     events:
       - http:
-          path: hello
+          path: tournamentsList
+          method: get
+  rounds:
+    handler: handler.rounds
+    events:
+      - http:
+          path: rounds
           method: get
