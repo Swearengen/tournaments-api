@@ -32,9 +32,9 @@ functions:
       - http:
           path: tournamentsList
           method: get
-  rounds:
-    handler: handler.rounds
+  tournament:
+    handler: handler.tournament
     events:
       - http:
-          path: rounds
+          path: tournament/{id}
           method: get
